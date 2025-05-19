@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Responsive Viewer</title>
+  <title>Responsive PDF Viewer</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -66,7 +66,8 @@
 
     if (view === "pdf") {
       const iframe = document.createElement("iframe");
-      iframe.src = "Global-Alliance-Brocure-4-3.pdf"; // Replace with your actual PDF path
+      const pdfUrl = encodeURIComponent("Global-Alliance-Brocure-4-3.pdf"); // Replace with your actual PDF path
+      iframe.src = `https://docs.google.com/gview?url=${window.location.origin}/${pdfUrl}&embedded=true`;
       content.appendChild(iframe);
     } else if (view === "photo") {
       const img = document.createElement("img");
