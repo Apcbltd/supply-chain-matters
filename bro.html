@@ -66,7 +66,7 @@
 
     if (view === "pdf") {
       const iframe = document.createElement("iframe");
-      const pdfUrl = encodeURIComponent("Global-Alliance-Brocure-4-3.pdf"); // Replace with your actual PDF path
+      const pdfUrl = encodeURIComponent("https://drive.google.com/file/d/1P98mb3Z2N97ow80KUA3_HY-GUwyWZ2Xe/view?usp=drivesdk"); // Replace with your actual PDF path
       iframe.src = `https://docs.google.com/gview?url=${window.location.origin}/${pdfUrl}&embedded=true`;
       content.appendChild(iframe);
     } else if (view === "photo") {
