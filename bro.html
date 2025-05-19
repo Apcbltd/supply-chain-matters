@@ -30,15 +30,9 @@
 
     iframe {
       width: 100%;
-      min-height: 80vh;
+      min-height: 90vh;
       border: none;
-      margin-top: 20px;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
     @media screen and (max-width: 768px) {
@@ -48,7 +42,7 @@
       }
 
       iframe {
-        min-height: 75vh;
+        min-height: 80vh;
       }
     }
   </style>
@@ -66,15 +60,11 @@
 
     if (view === "pdf") {
       const iframe = document.createElement("iframe");
-      const pdfUrl = encodeURIComponent("https://drive.google.com/file/d/1P98mb3Z2N97ow80KUA3_HY-GUwyWZ2Xe/view?usp=drivesdk"); // Replace with your actual PDF path
-      iframe.src = `https://docs.google.com/gview?url=${window.location.origin}/${pdfUrl}&embedded=true`;
+      iframe.src = "https://drive.google.com/file/d/1P98mb3Z2N97ow80KUA3_HY-GUwyWZ2Xe/preview";
+      iframe.allow = "autoplay";
       content.appendChild(iframe);
-    } else if (view === "photo") {
-      const img = document.createElement("img");
-      img.src = "photo.jpg"; // Replace with your actual image path
-      img.alt = "Responsive Photo";
-      content.appendChild(img);
     }
   </script>
+
 </body>
 </html>
