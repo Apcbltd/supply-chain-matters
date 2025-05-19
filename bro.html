@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Responsive PDF Viewer</title>
+  <title>Responsive Viewer</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -30,9 +30,15 @@
 
     iframe {
       width: 100%;
-      min-height: 90vh;
+      min-height: 80vh;
       border: none;
-      margin-top: 10px;
+      margin-top: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
     }
 
     @media screen and (max-width: 768px) {
@@ -42,7 +48,7 @@
       }
 
       iframe {
-        min-height: 80vh;
+        min-height: 75vh;
       }
     }
   </style>
@@ -60,11 +66,15 @@
 
     if (view === "pdf") {
       const iframe = document.createElement("iframe");
-      iframe.src = "https://drive.google.com/file/d/1P98mb3Z2N97ow80KUA3_HY-GUwyWZ2Xe/preview";
-      iframe.allow = "autoplay";
+      iframe.src = "https://drive.google.com/file/d/1P98mb3Z2N97ow80KUA3_HY-GUwyWZ2Xe/view?usp=drivesdk"; // Replace with your actual PDF path
       content.appendChild(iframe);
+    } else if (view === "photo") {
+      const img = document.createElement("img");
+      img.src = "photo.jpg"; // Replace with your actual image path
+      img.alt = "Responsive Photo";
+      content.appendChild(img);
     }
   </script>
-
 </body>
 </html>
+
