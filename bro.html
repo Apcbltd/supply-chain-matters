@@ -1,80 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Responsive Viewer</title>
+  <meta charset="UTF-8">
+  <title>Full Screen PDF Viewer</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 10px;
+    html, body {
+      margin: 0;
       padding: 0;
-      text-align: center;
-      background-color: #f9f9f9;
+      height: 100%;
     }
-
-    a {
-      display: inline-block;
-      margin: 20px auto;
-      padding: 15px 25px;
-      background-color: #007BFF;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-
-    a:hover {
-      background-color: #0056b3;
-    }
-
-    iframe {
+    #viewer {
       width: 100%;
-      min-height: 80vh;
-      border: none;
-      margin-top: 20px;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      margin-top: 20px;
-    }
-
-    @media screen and (max-width: 768px) {
-      a {
-        width: 90%;
-        font-size: 1rem;
-      }
-
-      iframe {
-        min-height: 75vh;
-      }
+      height: 100vh; /* Full viewport height */
     }
   </style>
 </head>
 <body>
+  <div id="viewer"></div>
 
-  <a href="?view=pdf">View Brochure</a>
-
-  <div id="content"></div>
-
+  <script type="text/javascript" src="https://cloudpdf.io/viewer.min.js"></script>
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const view = params.get("view");
-    const content = document.getElementById("content");
-
-    if (view === "pdf") {
-      const iframe = document.createElement("iframe");
-      iframe.src = "https://drive.google.com/file/d/1P98mb3Z2N97ow80KUA3_HY-GUwyWZ2Xe/view?usp=drivesdk"; // Replace with your actual PDF path
-      content.appendChild(iframe);
-    } else if (view === "photo") {
-      const img = document.createElement("img");
-      img.src = "photo.jpg"; // Replace with your actual image path
-      img.alt = "Responsive Photo";
-      content.appendChild(img);
-    }
+    const config = { 
+      documentId: '1caaba53-6a0e-49b8-beee-cf13cc87f576',
+      darkMode: true, 
+    };
+    CloudPDF(config, document.getElementById('viewer')).then((instance) => {
+      // Viewer initialized
+    });
   </script>
 </body>
 </html>
-
